@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+/* THE NAVIGATION SECTION */
+
+nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 3.5rem;
+    padding: 0rem 2rem;
+    background-color: black;
+    color: white;
+    align-items: center;
+    font-family: "BBH Sans Hegarty";
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* When user scrolls down — fade nav to transparent */
+nav.scrolled {
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: none;
+  backdrop-filter: blur(6px); /* subtle glassy effect */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 4rem;
+    margin-right: 3rem;
+    padding: 0px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.25rem;
+}
+
+nav a:hover {
+    color: grey;
+    transition: color 0.8s ease;
+}
+
+nav a:active {
+    color: grey;
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+.logo {
+    height: 100%; /* takes the full height of the nav */
+    display: flex;
+    align-items: center; /* vertically center image */
+}
+
+.logo img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+    margin-left: 1.25rem;
+    transition: opacity 0.4s ease; /* smooth fade */
+}
+
+nav.scrolled .logo img {
+  opacity: 0; /* adjust to taste (0 = invisible, 1 = fully visible) */
+}
+
+/* THE INTRODUCTION SECTION */
+
+.intro {
+    display: flex;
+    height: 80vh;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    background-color: black;
+    background-image: url("imgs/atlanta.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    color: black;
+}
+
+.intro::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.name_aboutMe {
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    color: white;
+    font-family: "BBH Sans Hegarty";
+}
+
+.name_aboutMe h1 {
+    margin-bottom: 2rem;
+}
+
+.name_aboutMe h2 {
+    font-family: "Roboto";
+    font-size: 1.25rem;
+    align-items: center;
+    line-height: 1.6;
+    max-width: 500px;
+    text-align: center;
+}
+
+.cover_Photo {
+    display: flex;
+    flex: 0.5;
+    z-index: 2;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cover_Photo img{
+    width: 80%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    filter: grayscale(15%) brightness(0.9);
+    border-radius: 12px;
+}
+
+/* THE PROJECT SECTION */
+
+.projects {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background-color: grey; /* light gray-blue tone */
+    padding: 4rem 0;
+}
+
+.carasoul-track {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch; /* keeps all cards the same height */
+    width: 100%;
+    max-width: 1200px;
+    transition: all 0.3s ease;
+}
+
+.project {
+    background-color: #fff;
+    flex: 1;               /* fixed card width */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    border: 5px solid rgba(0,0,0,0.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition:
+        transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+        box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+        flex-basis 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform, flex-basis; /* optimizes GPU rendering */
+}
+
+.project.center {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.project.center:hover {
+  transform: scale(1.1) translateY(-5px);
+}
+
+.project:not(.center):hover {
+  transform: translateY(-5px);
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    display: block;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.project-text {
+  width: 85%;
+  margin: 0 auto; /* centers all text in the card */
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.project h3 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: "BBH Sans Hegarty";
+    font-weight: normal;
+}
+
+.project p {
+    color: black;
+    margin-bottom: 10px;
+    font-family: "Roboto";
+    line-height: 1.5;
+}
+
+.project .long-description {
+  display: none; /* hidden initially */
+}
+
+.project.expanded {
+  flex-basis: 70%; /* expand the clicked card */
+  max-width: 70%;
+  transform: scale(1.02);
+  z-index: 2;
+  text-align: left;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.project.expanded img {
+    width: 60%;
+    margin: 0 auto 1rem auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.project.expanded .long-description {
+    display: block;
+}
+
+.project.expanded .project-text {
+  text-align: left; /* switch to left alignment on expand */
+  width: 90%;       /* give more room for text */
+  font-family: "Roboto";
+}
+
+.project.expanded ul {
+    margin-left: 20px;
+}
+
+/* Contact Infromation Section */
+
+.contactInfo {
+    display: flex;
+    text-align: left;
+    justify-content: center;
+    width: 100%;
+    padding: 4rem 0;
+    background-color: black;
+}
+
+.contact-info-box {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    font-family: 'Roboto';
+    font-weight: normal;
+    color: white;
+    font-size: 1.25rem;
+}
+
+.contact-info-box h3 {
+    font-family: 'BBH Sans Hegarty';
+    font-weight: normal;
+}
+
+.contact-info-box ul {
+    text-decoration: none;
+    list-style: none;
+    text-align: left;
+}
+
+.contact-info-box a {
+    text-decoration: underline;
+    color: inherit;
+}
