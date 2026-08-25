@@ -107,18 +107,31 @@ nav.scrolled .logo img {
 }
 
 .name_aboutMe {
+    color: white;
+    font-family: "BBH Sans Hegarty";
+    padding: 15px 30px;
+    opacity: 100%;
+}
+
+#aboutMe {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutMe_background {
     z-index: 2;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-    color: #f5f5f5;
-    font-family: "BBH Sans Hegarty";
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 99px;
+    width: fit-content;
 }
 
 .name_aboutMe h1 {
     margin-bottom: 2rem;
+    align-items: center;
+    text-align: center;
 }
 
 .name_aboutMe h2 {
@@ -132,10 +145,11 @@ nav.scrolled .logo img {
 
 .cover_Photo {
     display: flex;
-    flex: 0.5;
     z-index: 2;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
+    flex: 0.65;
+    transform: translateX(20px);
 }
 
 .cover_Photo img{
@@ -240,7 +254,7 @@ nav.scrolled .logo img {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 48px;
-  color: white;
+  color: black;
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.3s ease;
